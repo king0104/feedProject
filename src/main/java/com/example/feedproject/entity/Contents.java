@@ -21,8 +21,6 @@ public class Contents {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // AI 적용됨
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name ="channel_name") // 이렇게 설정하는게 맞나? 어떻게 설정하는거지
     private Channel channel; // fk
 
     private int likeCount;

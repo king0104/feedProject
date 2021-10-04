@@ -27,17 +27,6 @@ public class Channel {
 
     private String createDate;
 
-    @OneToMany(mappedBy = "channel")
-    List<Contents> contents = new ArrayList<>();
-
-    @OneToMany(mappedBy = "fromChannel") // 질문 : mapped by에 들어가는 값은 뭔지 모르겠습니다
-    // 내 생각 : @ManyToOne으로 설정한 필드 명을 적어주면 된다,
-    List<Subscribe> fromSubscribes = new ArrayList<>();
-
-    @OneToMany(mappedBy = "toChannel")
-    List<Subscribe> toSubscribes = new ArrayList<>();
-
-
     public Channel(Long id, String name, String followerCount, String createDate) {
 
         this.id = id;

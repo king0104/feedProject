@@ -21,12 +21,8 @@ public class Subscribe {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // AI 적용됨
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name ="from_channel_name")
     private Channel fromChannel; // fk
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name ="to_channel_name")
     private Channel toChannel; // fk
 
     private LocalDateTime createDate;
