@@ -1,10 +1,11 @@
 package com.example.feedproject.controller;
 
-import com.example.feedproject.entity.Channel;
-import com.example.feedproject.entity.Subscribe;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.example.feedproject.service.SubscribeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -14,8 +15,7 @@ public class SubscribeController {
 
     // 구독 생성
     @PostMapping("subscribe")
-    public void create(@RequestBody Channel fromChanel,
-                       @RequestBody Channel toChannel) {
+    public void create(@RequestParam String fromChanel, @RequestParam String toChannel) {
 
         subscribeService.create(fromChanel, toChannel);
     }
