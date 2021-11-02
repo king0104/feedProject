@@ -46,12 +46,13 @@ public class FeedService {
         for (Channel channel : channelList) {
             // 3. 채널의 content 뽑아내기
             List<Contents> contentsList = getContentsByChannel(channel); // Long id, int size);
+            // 4. mergeList 만들기 (최종)
             for(Contents content : contentsList) {
                 mergeList.add(content);
             }
         }
-        // return mergeList;
-        // mergeList  sort
+
+        // 1. mergeList  sort
         Collections.sort(mergeList, new Comparator<Contents>() {
             @Override
             public int compare(Contents o1, Contents o2) {
@@ -66,14 +67,14 @@ public class FeedService {
                 }
             }
         });
-        // mregeList limit
+        // 2.liimt mregeList
         List<Contents> limitedMergeList = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             Contents content = mergeList.get(i);
             limitedMergeList.add(content);
         }
 
-        // return
+        // 3. return
         return limitedMergeList;
     }
 
@@ -87,8 +88,8 @@ public class FeedService {
                 String tempName = ss.getToChannel();
                 // to에 해당하는 channel 찾가
                 Channel channel = getChannelByName(tempName);
-                // 1. subscribe의 객체를 가지고, channel과 연결해주어야 한다
 
+                // 1. subscribe의 객체를 가지고, channel과 연결해주어야 한다
                 // 2. channel 객체 하나 찾아서, 넣어주기
                 subscribedChannelList.add(channel);
 
