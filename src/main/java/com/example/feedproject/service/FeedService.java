@@ -1,8 +1,6 @@
 package com.example.feedproject.service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import com.example.feedproject.entity.Channel;
@@ -52,10 +50,31 @@ public class FeedService {
                 mergeList.add(content);
             }
         }
-        return mergeList;
+        // return mergeList;
         // mergeList  sort
+        Collections.sort(mergeList, new Comparator<Contents>() {
+            @Override
+            public int compare(Contents o1, Contents o2) {
+                if (o1.getCreateDate().isAfter(o2.getCreateDate())) {
+                    return -1; // 안바꾸기
+                }
+                else if (o1.getCreateDate().isBefore(o2.getCreateDate())) {
+                    return 1; // 바꾸기
+                }
+                else {
+                    return 0;
+                }
+            }
+        });
         // mregeList limit
+        List<Contents> limitedMergeList = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            Contents content = mergeList.get(i);
+            limitedMergeList.add(content);
+        }
+
         // return
+        return limitedMergeList;
     }
 
     public List<Channel> getSubscribedChannel(String name) {
@@ -63,7 +82,7 @@ public class FeedService {
         List<Channel> subscribedChannelList = new ArrayList<>();
 
         for (Subscribe ss : subscribedlList) {
-            if (ss.getFromChannel() == name) { // from을 찾고
+            if (ss.getFromChannel().equals(name)) { // from을 찾고
                 // to를 얻어서
                 String tempName = ss.getToChannel();
                 // to에 해당하는 channel 찾가
@@ -83,7 +102,7 @@ public class FeedService {
         List<Channel> channelList = channelRepository.findAll();
 
         for (Channel ch : channelList) {
-            if (ch.getName() == name) {
+            if (ch.getName().equals(name)) {
                 return ch;
             }
         }
@@ -98,7 +117,7 @@ public class FeedService {
         List<Contents> contentsListResult = new ArrayList<>();
 
         for(Contents content : contentsList) {
-            if (content.getChannelName() == channelName) {
+            if (content.getChannelName().equals(channelName)) {
                 contentsListResult.add(content);
             }
         }
