@@ -1,10 +1,14 @@
 package com.example.feedproject.service;
 
+import com.example.feedproject.entity.Channel;
 import org.springframework.stereotype.Service;
 
 import com.example.feedproject.entity.Subscribe;
 import com.example.feedproject.repository.SubscribeRepository;
 import lombok.RequiredArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -21,6 +25,12 @@ public class SubscribeService {
 
         subscribeRepository.save(subscribe);
     }
+
+
+
+//    public void read(String fromChannel) {
+//        Long id = subscribeRepository.findById()
+//    }
 
 //    // 입력 받은 channel이 구독한 채널들을 조회하는 것
 //    public Subscribe read(String fromChannel) {
