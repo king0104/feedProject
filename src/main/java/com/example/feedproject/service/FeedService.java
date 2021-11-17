@@ -115,8 +115,8 @@ public class FeedService {
     public ChannelDto getChannelByName(String name) {
 
         Channel channel = channelRepository.findChannelByName(name);
-//        ChannelDto channelDto = channelMapper.INSTANCE.toChannelDto(channel);
-        ChannelDto channelDto = channelBusiness.createChannelDto(channel);
+        ChannelDto channelDto = channelMapper.INSTANCE.toChannelDto(channel);
+//        ChannelDto channelDto = channelBusiness.createChannelDto(channel);
         return channelDto;
         // 이거 안쓰고 optional 쓰는 방법 알아보기
 

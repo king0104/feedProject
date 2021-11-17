@@ -2,8 +2,8 @@ package com.example.feedproject.controller;
 
 import com.example.feedproject.dto.ContentsDto;
 import com.example.feedproject.entity.Contents;
+import com.example.feedproject.entity.FeedContents;
 import com.example.feedproject.service.FeedService;
-import io.swagger.annotations.ApiOperation;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -30,10 +30,13 @@ public class FeedController {
             @ApiResponse(responseCode = "500", description = "INTERNAL SERVER ERROR !!")
     })
     @GetMapping("/feed")
-    public ResponseEntity<List<ContentsDto>> getFeed(@RequestParam String channelName) {
-        List<ContentsDto> contentsList = feedService.getFeeds(channelName);
+    public ResponseEntity<FeedContents> getFeed(@RequestParam String channelName) {
+        List<ContentsDto> contentsDtoList = feedService.getFeeds(channelName);
+        // 코드 정형화
+        FeedContents feedContents = new FeedContents();
+        feedContents.setContentsDtoList(contentsDtoList);
 
-        return ResponseEntity.ok(contentsList);
+        return ResponseEntity.ok(feedContents);
 
 //        for(Contents ct : contentsList) {
 //            System.out.println(ct);
