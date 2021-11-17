@@ -6,6 +6,7 @@ import com.example.feedproject.entity.Channel;
 import com.example.feedproject.entity.Contents;
 import com.example.feedproject.repository.ChannelRepository;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
