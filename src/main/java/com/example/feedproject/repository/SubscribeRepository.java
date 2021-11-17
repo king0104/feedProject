@@ -5,9 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.feedproject.entity.Subscribe;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface SubscribeRepository extends JpaRepository<Subscribe, Long> {
 
 //    @Query(value = "select * from subscribe where from_channel = ?", nativeQuery = true)

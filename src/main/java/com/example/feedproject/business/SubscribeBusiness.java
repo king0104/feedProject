@@ -6,6 +6,7 @@ import com.example.feedproject.entity.Contents;
 import com.example.feedproject.entity.Subscribe;
 import com.example.feedproject.repository.SubscribeRepository;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

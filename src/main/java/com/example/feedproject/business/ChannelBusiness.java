@@ -6,6 +6,10 @@ import com.example.feedproject.entity.Channel;
 import com.example.feedproject.entity.Contents;
 import com.example.feedproject.repository.ChannelRepository;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -28,4 +32,7 @@ public class ChannelBusiness {
         ChannelDto channelDto = new ChannelDto(channel);
         return channelDto;
     }
+
 }
+
+

@@ -11,6 +11,7 @@ import com.example.feedproject.dto.ContentsDto;
 import com.example.feedproject.dto.SubscribeDto;
 import com.example.feedproject.entity.Channel;
 import com.example.feedproject.entity.Subscribe;
+import com.example.feedproject.mapper.ChannelMapper;
 import com.example.feedproject.repository.ChannelRepository;
 import com.example.feedproject.repository.SubscribeRepository;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,8 @@ public class FeedService {
     private final SubscribeBusiness subscribeBusiness;
     private final ContentsBusiness contentsBusiness;
     private final ChannelBusiness channelBusiness;
+
+    private final ChannelMapper channelMapper;
 
 
     /**
@@ -112,6 +115,7 @@ public class FeedService {
     public ChannelDto getChannelByName(String name) {
 
         Channel channel = channelRepository.findChannelByName(name);
+//        ChannelDto channelDto = channelMapper.INSTANCE.toChannelDto(channel);
         ChannelDto channelDto = channelBusiness.createChannelDto(channel);
         return channelDto;
         // 이거 안쓰고 optional 쓰는 방법 알아보기

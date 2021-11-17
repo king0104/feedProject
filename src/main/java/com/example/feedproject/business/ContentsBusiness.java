@@ -4,6 +4,8 @@ import com.example.feedproject.dto.ContentsDto;
 import com.example.feedproject.entity.Contents;
 import com.example.feedproject.repository.ContentsRepository;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
